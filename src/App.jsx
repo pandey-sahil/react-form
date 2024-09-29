@@ -5,9 +5,12 @@ import { useState } from 'react';
 const App = () => {
   const [username, setusername] = useState('');
   const [email, setemail] = useState('');
+  const [gender, setgender] = useState("");
+
   const user = {
     username: username,
     email: email,
+    gender: gender,
   }
   const submitHandler = (e) => {
     e.preventDefault();
@@ -43,7 +46,36 @@ const App = () => {
               placeholder="Enter your email"
             />
           </div>
-        
+
+          <div className='mb-4'>
+            <input
+              type="radio"
+              name="gender"
+              defaultValue="male"
+              checked={gender === 'male' ? true : false}
+              onChange={(e) => setgender(e.target.value)}
+            />{' '}
+            Male &nbsp;&nbsp;&nbsp;
+            
+            <input
+              type="radio"
+              name="gender"
+              defaultValue="female"
+              checked={gender === 'female' ? true : false}
+              onChange={(e) => setgender(e.target.value)}
+            />{' '}
+            Female &nbsp;&nbsp;&nbsp;
+
+            <input
+              type="radio"
+              name="gender"
+              defaultValue="others"
+              checked={gender === 'others' ? true : false}
+              onChange={(e) => setgender(e.target.value)}
+            />{' '}
+            Others&nbsp;&nbsp;&nbsp;
+          </div>
+
           <div>
             <button
               type="submit"
